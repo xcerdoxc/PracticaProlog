@@ -1,0 +1,1 @@
+Per cada fila, generar una paraula, generar variables per cada lloc,restriccions de cada paraula (length i lloc)

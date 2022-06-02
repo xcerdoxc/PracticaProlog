@@ -31,4 +31,4 @@ solucio(P1,P2,P3,P4):-
 paraula(P1),length(P1,N1),N1 is 7,
 paraula(P2),length(P2,N2),N2 is 10,
 paraula(P3),length(P3,N3),N3 is 5,
-paraula(P4),length(P4,N4),N4 is 7,repetits([P4|P1]).
+paraula(P4),length(P4,N4),N4 is 7,not(repetits([P4|P1])).
