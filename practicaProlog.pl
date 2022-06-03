@@ -30,17 +30,28 @@ compararLlista(X,[_|Z]):-compararLlista(X,Z).
 % N1 is 7 .
 solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14):-
 paraula(P1),length(P1,N1),N1 is 7,
-paraula(P2),length(P2,N2),N2 is 11,
-paraula(P3),length(P3,N3),N3 is 5,
-paraula(P4),length(P4,N4),N4 is 7,not(repetits([P4,P1])),
-paraula(P5),length(P5,N5),N5 is 3,
+paraula(P2),length(P2,N2),N2 is 11,verificaP1P2(P1,P2),
+paraula(P3),length(P3,N3),N3 is 5,verificaP2P3(P2,P3),
+paraula(P4),length(P4,N4),N4 is 7,not(repetits([P4,P1])),verificaP2P4(P2,P4),
+paraula(P5),length(P5,N5),N5 is 3,verificaP4P5(P4,P5),
 paraula(P6),length(P6,N6),N6 is 10,
-paraula(P7),length(P7,N7),N7 is 8,
-paraula(P8),length(P8,N8),N8 is 8,not(repetits([P8,P7])),
-paraula(P9),length(P9,N9),N9 is 8,not(repetits([P9,P7,P8])),
-paraula(P10),length(P10,N10),N10 is 6,
-paraula(P11),length(P11,N11),N11 is 8,not(repetits([P11,P9,P7,P8])),
-paraula(P12),length(P12,N12),N12 is 6,not(repetits([P12,P10])),
+paraula(P7),length(P7,N7),N7 is 8,verificaP4P7(P4,P7),verificaP6P7(P6,P7),
+paraula(P8),length(P8,N8),N8 is 8,not(repetits([P8,P7])),verificaP7P8(P7,P8),
+paraula(P9),length(P9,N9),N9 is 8,not(repetits([P9,P7,P8])),verificaP8P9(P8,P9),
+paraula(P10),length(P10,N10),N10 is 6,verificaP8P10(P8,P10),
+paraula(P11),length(P11,N11),N11 is 8,not(repetits([P11,P9,P7,P8])),verificaP8P11(P8,P11),
+paraula(P12),length(P12,N12),N12 is 6,not(repetits([P12,P10])),verificaP11P12(P11,P12),
 paraula(P13),length(P13,N13),N13 is 5,not(repetits([P13,P3])),
 paraula(P14),length(P14,N14),N14 is 5,not(repetits([P14,P13,P3])).
 
+verificaP1P2(P1,[X|_]):-nth1(5,P1,X).
+verificaP2P3(P2,P3):-nth1(3,P2,X),nth1(3,P3,X).
+verificaP2P4(P2,P4):-nth1(11,P2,X),nth1(5,P4,X).
+verificaP4P5(P4,P5):-nth1(7,P4,X),nth1(3,P5,X).
+verificaP4P7(P4,P7):-nth1(3,P4,X),nth1(6,P7,X).
+verificaP6P7(P6,P7):-nth1(8,P7,X),nth1(6,P6,X).
+verificaP7P8(P7,P8):-nth1(1,P7,X),nth1(8,P8,X).
+verificaP8P9(P8,P9):-nth1(1,P8,X),nth1(1,P9,X).
+verificaP8P10(P8,P10):-nth1(6,P8,X),nth1(4,P10,X).
+verificaP8P11(P8,P11):-nth1(6,P8,X),nth1(5,P11,X).
+verificaP11P12(P11,P12):-nth1(3,P11,X),nth1(6,P12,X).
