@@ -1,7 +1,11 @@
 :-consult(auxiliar).
+
+
+% Pregunta 1
 paraula(X):-pertany(X). %Funcio Paraula- Carrega totes les paraules a la base de coneixements
 pertany(X):-paraula1(X). %Funcio Pertany->Genera les paraules tant en normal com invertit
 pertany(X):- paraula1(Y),reverse(Y,X).
+
 paraula1([d,e,m,o,c,r,a,c,i,a]).
 paraula1([e,n,c,o,n,t,r,a,r,s,e]).
 paraula1([e, m, b, o, s, c, a, r]).
@@ -17,6 +21,7 @@ paraula1([e, r, r, o, r]).
 paraula1([v, i, c, i, o]).
 paraula1([r, e, a]):-!.
 
+% Pregunta 2
 repetits([X|Y]):-compararLlista(X,Y). %Mira si hi hi ha un element repetit dintre del conjunt tant si esta invertit o no
 repetits([_|Y]):-repetits(Y).
 repetits([X|Y]):-reverse(X,X1),compararLlista(X1,Y).
@@ -24,10 +29,14 @@ repetits([X|Y]):-reverse(X,X1),compararLlista(X1,Y).
 compararLlista(X,[X|_]).
 compararLlista(X,[_|Z]):-compararLlista(X,Z).
 
+
+%Pregunta 3
 % creuats():-cls,solucio(P1,P2,P3,P4).
 % %solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13).
 %  solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13):-paraula(P1),length(P1,N1),
 % N1 is 7 .
+
+
 solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14):-
 paraula(P1),length(P1,N1),N1 is 7,
 paraula(P2),length(P2,N2),N2 is 11,verificaP1P2(P1,P2),
@@ -57,3 +66,17 @@ verificaP8P11(P8,P11):-nth1(6,P8,X),nth1(4,P11,X).
 verificaP8P12(P8,P12):-nth1(4,P8,X),nth1(5,P12,X).
 verificaP12P13(P12,P13):-nth1(3,P12,X),nth1(6,P13,X).
 verificaP13P14([X|_],[X|_]).
+ 
+
+
+%Pregunta4
+/*
+mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fila, Columna), escriu(X, vermell). %Cas base
+mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fila, Columna),escriu(X1, vermell),
+                                            C1 is Columna + 1, mostra(L, Fila, C1, vertical).
+*/
+
+
+mostra([X], Fila, Columna, horitzontal) :- atom_string(horitzontal, horitzontal), gotoXY(Fila, Columna), escriu(X, blau). %Cas base
+mostra([X|L], Fila, Columna, horitzontal) :- atom_string(horitzontal, horitzontal), gotoXY(Fila, Columna), append([X], [' ', ' ', ' '], X1),escriu(X1, blau),
+                                            F1 is Fila + 1, mostra(L, F1, Columna, horitzontal).
