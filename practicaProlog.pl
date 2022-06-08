@@ -66,7 +66,7 @@ verificaP8P11(P8,P11):-nth1(6,P8,X),nth1(4,P11,X).
 verificaP8P12(P8,P12):-nth1(4,P8,X),nth1(5,P12,X).
 verificaP12P13(P12,P13):-nth1(3,P12,X),nth1(6,P13,X).
 verificaP13P14([X|_],[X|_]).
- 
+
 
 
 %Pregunta4
@@ -75,6 +75,11 @@ mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fi
 mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fila, Columna),escriu(X1, vermell),
                                             C1 is Columna + 1, mostra(L, Fila, C1, vertical).
 */
+
+
+mostra([],_,_,_).
+mostra([X|L],F,C,horitzontal):-gotoXY(Fila, Columna), escriu(X, blau),
+                               C1 is C+3,mostra(L,F,C1,horitzontal).
 
 
 mostra([X], Fila, Columna, horitzontal) :- atom_string(horitzontal, horitzontal), gotoXY(Fila, Columna), escriu(X, blau). %Cas base
