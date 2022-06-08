@@ -31,11 +31,18 @@ compararLlista(X,[_|Z]):-compararLlista(X,Z).
 
 
 %Pregunta 3
+
+/*Mostra les paraules*/
+mostra([],_,_,_). %CasBase 
+mostra([X|L],F,C,horitzontal):-gotoXY(F, C), escriu(X, blau), C1 is C+3, mostra(L,F,C1,horitzontal).
+mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F + 1, mostra(L,F1,C,vertical).
+
+%Pregunta4
+
 % creuats():-cls,solucio(P1,P2,P3,P4).
 % %solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13).
 %  solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13):-paraula(P1),length(P1,N1),
 % N1 is 7 .
-
 
 solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14):-
 treureP1(P1),
@@ -84,20 +91,9 @@ verificaP13P14([X|_],[X|_]).
 
 
 
-%Pregunta4
-/*
-mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fila, Columna), escriu(X, vermell). %Cas base
-mostra(X, Fila, Columna, vertical) :- atom_string(vertical, vertical), gotoXY(Fila, Columna),escriu(X1, vermell),
-                                            C1 is Columna + 1, mostra(L, Fila, C1, vertical).
 
 
 
-mostra([],_,_,_).
-mostra([X|L],F,C,horitzontal):-gotoXY(Fila, Columna), escriu(X, blau),
-                               C1 is C+3,mostra(L,F,C1,horitzontal).
 
 
-mostra([X], Fila, Columna, horitzontal) :- atom_string(horitzontal, horitzontal), gotoXY(Fila, Columna), escriu(X, blau). %Cas base
-mostra([X|L], Fila, Columna, horitzontal) :- atom_string(horitzontal, horitzontal), gotoXY(Fila, Columna), append([X], [' ', ' ', ' '], X1),escriu(X1, blau),
-                                            F1 is Fila + 1, mostra(L, F1, Columna, horitzontal).
-*/
+
