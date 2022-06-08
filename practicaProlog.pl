@@ -31,18 +31,11 @@ compararLlista(X,[_|Z]):-compararLlista(X,Z).
 
 
 %Pregunta 3
-
-/*Mostra les paraules*/
-mostra([],_,_,_). %CasBase 
-mostra([X|L],F,C,horitzontal):-gotoXY(F, C), escriu(X, blau), C1 is C+3, mostra(L,F,C1,horitzontal).
-mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F + 1, mostra(L,F1,C,vertical).
-
-%Pregunta4
-
 % creuats():-cls,solucio(P1,P2,P3,P4).
 % %solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13).
 %  solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13):-paraula(P1),length(P1,N1),
 % N1 is 7 .
+
 
 solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14):-
 treureP1(P1),
@@ -89,11 +82,12 @@ verificaP8P12(P8,P12):-nth1(4,P8,X),nth1(5,P12,X).
 verificaP12P13(P12,P13):-nth1(3,P12,X),nth1(6,P13,X).
 verificaP13P14([X|_],[X|_]).
 
+/*Mostra les paraules*/
+mostra([],_,_,_). %CasBase 
+mostra([X|L],F,C,horitzontal):-gotoXY(F, C), escriu(X, blau), C1 is C+3, mostra(L,F,C1,horitzontal).
+mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F + 1, mostra(L,F1,C,vertical).
 
 
-
-
-
-
-
+%Pregunta4
+%creuats :- 
 
