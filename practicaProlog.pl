@@ -1,6 +1,5 @@
 :-consult(auxiliar).
 
-
 % Pregunta 1
 paraula(X):-pertany(X). %Funcio Paraula- Carrega totes les paraules a la base de coneixements
 pertany(X):-paraula1(X). %Funcio Pertany->Genera les paraules tant en normal com invertit
@@ -29,13 +28,11 @@ repetits([X|Y]):-reverse(X,X1),compararLlista(X1,Y).
 compararLlista(X,[X|_]).
 compararLlista(X,[_|Z]):-compararLlista(X,Z).
 
-
 %Pregunta 3
 % creuats():-cls,solucio(P1,P2,P3,P4).
 % %solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13).
 %  solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13):-paraula(P1),length(P1,N1),
 % N1 is 7 .
-
 
 solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14):-
 treureP1(P1),
@@ -91,3 +88,28 @@ mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F + 1, mostr
 %Pregunta4
 %creuats :- 
 
+creuats :- cls,solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14),
+    mostra(P1,50,8,horitzontal),
+    mostra(P2,1,12,vertical),
+    mostra(P3,3,10,horitzontal).
+
+
+
+/*
+creuats :- cls,solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14),
+    mostra(P1,1,8,horitzontal),
+    mostra(P2,1,12,vertical),
+    mostra(P3,3,10,horitzontal),
+    mostra(P4,11,8,horitzontal),
+    mostra(P5,9,14,vertical),
+    mostra(P6,13,5,horitzontal),
+    mostra(P7,6,10,vertical),
+    mostra(P8,6,3,horitzontal),
+    mostra(P9,6,3,vertical),
+    mostra(P10,11,2,horitzontal),
+    mostra(P11,3,8,vertical),
+    mostra(P12,2,6,vertical),
+    mostra(P13,4,1,horitzontal),
+    mostra(P14,4,1,vertical).
+    
+*/
