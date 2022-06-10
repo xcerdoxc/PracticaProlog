@@ -80,18 +80,19 @@ verificaP12P13(P12,P13):-nth1(3,P12,X),nth1(6,P13,X).
 verificaP13P14([X|_],[X|_]).
 
 /*Mostra les paraules*/
-mostra([],_,_,_). %CasBase 
+mostra([],_,_,_). %CasBase
 mostra([X|L],F,C,horitzontal):-gotoXY(F, C), escriu(X, blau), C1 is C+3, mostra(L,F,C1,horitzontal).
-mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F + 1, mostra(L,F1,C,vertical).
+mostra([X|L],F,C,vertical):-gotoXY(F, C), escriu(X, vermell), F1 is F+2, mostra(L,F1,C,vertical).
+
 
 
 %Pregunta4
-%creuats :- 
+%creuats :-
 
 creuats :- cls,solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14),
-    mostra(P1,50,8,horitzontal),
-    mostra(P2,1,12,vertical),
-    mostra(P3,3,10,horitzontal).
+    mostra(P1,1,24,horitzontal),nl,
+    mostra(P2,1,36,vertical),nl,
+    mostra(P3,5,30,horitzontal).
 
 
 
@@ -111,5 +112,5 @@ creuats :- cls,solucio(P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14),
     mostra(P12,2,6,vertical),
     mostra(P13,4,1,horitzontal),
     mostra(P14,4,1,vertical).
-    
+
 */
